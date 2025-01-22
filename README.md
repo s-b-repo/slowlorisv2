@@ -24,19 +24,11 @@ If you found this work useful, please cite it as
 ```
 
 ## How to install and run?
-
-You can clone the git repo or install using **pip**. Here's how you run it.
-
-* `sudo pip3 install slowloris`
-* `slowloris example.com`
-
-That's all it takes to install and run slowloris.py.
-
-If you want to clone using git instead of pip, here's how you do it.
+here's how you do it.
 
 * `git clone https://github.com/gkbrk/slowloris.git`
 * `cd slowloris`
-* `python3 slowloris.py example.com`
+* `python slowloris.py -ua --adaptive-sockets -s 4000 example.com`
 
 ### SOCKS5 proxy support
 
@@ -51,20 +43,19 @@ It is possible to modify the behaviour of slowloris with command-line
 arguments. In order to get an up-to-date help document, just run
 `slowloris -h`.
 
-* -p, --port
-* * Port of webserver, usually 80
-* -s, --sockets
-* * Number of sockets to use in the test
-* -v, --verbose
-* * Increases logging (output on terminal)
-* -ua, --randuseragents
-* * Randomizes user-agents with each request
-* -x, --useproxy
-* * Use a SOCKS5 proxy for connecting
-* --https
-* * Use HTTPS for the requests
-* --sleeptime
-* * Time to sleep between each header sent
+options:
+  -h, --help            show this help message and exit
+  -p PORT, --port PORT  Port of webserver, usually 80
+  -s SOCKETS, --sockets SOCKETS
+                        Number of sockets to use in the test
+  -v, --verbose         Increases logging
+  -ua, --randuseragents
+                        Randomizes user-agents with each request
+  --https               Use HTTPS for the requests
+  --sleeptime SLEEPTIME
+                        Time to sleep between each header sent.
+  --random-delay        Adds random delays to requests to evade rate limiting
+  --adaptive-sockets    Adjust socket count based on response times
 
 ## License
-The code is licensed under the MIT License.
+The code is licensed under the GPL License.
